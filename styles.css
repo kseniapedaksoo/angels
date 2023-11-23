@@ -1,0 +1,150 @@
+
+/* assign to all *:before and *:after pseudo-elements */
+*:before, *:after {
+  position: absolute;
+  content: '';
+}
+
+/* setting up the background */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: auto;
+    width: 100vw;
+    max-width: 1200px;
+    background-color: #7b9fef;
+}
+
+/* right angel */
+.angel {
+    position: relative;
+    top: 100px;
+    left: 200px;
+    width: 25px;
+    height: 25px;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 80px solid #ffc107;
+    border-radius: 50%;
+    transform: rotate(-20deg);
+}
+
+/* angel's head */
+.angel:before {
+    top: -10px;
+    left: -7px;
+    width: 39px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 5px -5px 0px 5px #E4E01899, /* light around the head */
+    inset -8px 7px 1px 2px #f5dc0c5c, /* light on the head */
+    -20px -13px 0px 17px #7b9fef, /* hiding an unnecessary part of the hand */
+    -18px 20px 0px 9px #EE971A;/* the hand itself */
+}
+
+/* angel's wing */
+.angel:after {
+    top: 23px;
+    left: 18px;
+    width: 10px;
+    border-left: 30px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 40px solid #ffffff;
+    border-radius: 10% 0% 0% 70%;/* give it a shape */
+}
+
+/* a rope */
+.rope {
+    height: 120px;
+    width: 1px;
+    position: relative;
+    background-color: white;
+    transform: rotate(19deg);
+    left: -50px;
+    top: 17px;
+    z-index: -1;
+}
+
+/* a star for first and second angels */
+.rope:before {
+    width: 30px;
+    height: 30px;
+    background-color: #FFED93; 
+    top: 120px;
+    left: -15px; 
+    border-radius: 50%;
+}
+
+/* 4 circles to make a four-pointed shape for the star */
+.rope:after {
+    width: 30px;
+    height: 30px;
+    background-color: #7b9fef;
+    top: 106px;
+    left: 1px;
+    border-radius: 50%;
+    box-shadow: -31px 0 0 0 #7b9fef,
+    -30px 29px 0px 0px #7b9fef,
+    -1px 29px 0px 0px #7b9fef;
+}
+
+
+
+/* left angel */
+body>div:nth-child(2) {
+    top: 100px;/* positining to the top*/
+    left: -70px;/* positining to the left*/
+    transform: scaleX(-1) rotate(-19deg); /* flipping the original to its mirror image (the transform property is used to rotate the image and scalex(-1) rotates the image to axial symmetry) */
+}
+
+
+
+/* top angel */
+body>div:last-child {
+    top: -210px;
+    left: -100px;
+    border-left: 50px solid transparent;;/* make the dress wider */
+    border-right: 50px solid transparent;/* make the dress wider */
+    border-bottom: 95px solid #ffc107;/* make the dress longer */
+    transform: rotate(0deg);/* straighten the angel */
+}
+
+body>div:last-child:after {
+    border-bottom: unset;/* remove the trapezoidal side wing */
+}
+
+body>div:last-child:before {
+    box-shadow: 0px 58px 0px -3px #ffc107,/* hiding the unnecessary part of the hands */
+    0px 43px 0px 12px #EE971A,/* hands */
+    0px -8px 0px 4px #7b9fef,/* hiding the unnecessary part of the helo */
+    -96px 6px 0px 32px #7b9fef,/* hiding the unnecessary part of the left wing */
+    93px 3px 0px 32px #7b9fef,/* hiding the unnecessary part of the right wing */
+    -58px 37px 0px -1px white,/* a part of the left wing */
+    58px 37px 0px -1px white,/* a part of the right wing */
+    -46px 37px 0px -1px white,/* a part of the left wing */
+    46px 37px 0px -1px white,/* a part of the right wing */
+    0px -10px 0px 9px #FEFF9B99, /* a helo */
+    inset 0px 6px 1px 2px #f5dc0c5c;/* light from the halo on the head */
+}
+
+/* a rope for the third angel */
+body>div:last-child .rope {
+    transform: unset;/* straightening the rope */
+    left: 48%;
+}
+
+/* a moon */
+body>div:last-child .rope:before {
+    width: 150px;
+    height: 150px;
+    top: 100px;
+    left: -75px; 
+}
+
+body>div:last-child .rope:after {
+    box-shadow: -70px 30px 0px 20px #7b9fef;/* hiding the unnecessary part of the moon */
+    background-color: #FFED93;
+} 
